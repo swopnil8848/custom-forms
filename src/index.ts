@@ -84,7 +84,6 @@ const startApp = async () => {
   await initializeDatabase();
 
   const port = process.env.PORT || 3000;
-  console.log("port:: ", port);
   server.listen(port, () => {
     console.log(`PORT listening to ${port}`);
   });

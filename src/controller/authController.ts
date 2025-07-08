@@ -244,7 +244,7 @@ export class authController {
 
     const resetToken = crypto.randomBytes(20).toString("hex");
 
-    const frontendUrl = req.get("origin") || "https://emis.ekrasunya.com";
+    const frontendUrl = req.get("origin") || process.env.FRONTEND_URL || "http://localhost:5173";
     const url = `${frontendUrl}/reset-password/${resetToken}`;
 
     const user = await AuthService.forgotPassword(email, resetToken);
@@ -258,8 +258,8 @@ export class authController {
       url
     );
 
-    const response = await sendEmail.send({
-      templateName: "resetPasswordTemplate",
+    await sendEmail.send({
+      templateName: "forgotPassword",
       subject: "Reset Your Password!",
     });
 

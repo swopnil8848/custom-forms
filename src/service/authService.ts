@@ -46,6 +46,7 @@ export class AuthService {
 
     user.passwordResetToken = resetToken;
     user.passwordChangedAt = new Date();
+    user.isVerified = true;
 
     await this.userRepository.save(user);
 
@@ -68,6 +69,7 @@ export class AuthService {
     // Update the user's password and remove the reset token
     user.password = hashedPassword;
     user.passwordResetToken = null; // Remove the token after resetting
+    user.isVerified = true;
 
     await this.userRepository.save(user); // Save changes
 

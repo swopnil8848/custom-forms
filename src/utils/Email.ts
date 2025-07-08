@@ -209,7 +209,6 @@ export class EmailFactory {
 
     switch (provider.toLowerCase()) {
       case "nodemailer":
-        console.log("nodemailer sending email:: ");
         return new NodeMailerEmail(user, url, otp);
       case "mailersend":
         return new MailerSendEmail(user, url, otp);
