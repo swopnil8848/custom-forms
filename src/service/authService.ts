@@ -46,7 +46,6 @@ export class AuthService {
 
     user.passwordResetToken = resetToken;
     user.passwordChangedAt = new Date();
-    user.isVerified = true;
 
     await this.userRepository.save(user);
 
