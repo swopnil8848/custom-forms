@@ -16,7 +16,7 @@ export class FormController {
       const errors = await validate(formDto);
 
       if (errors.length > 0) {
-        return next(new AppError("Validation Failed", 400, errors));
+        return next(new AppError("Vali dation Failed", 400, errors));
       }
 
       const userId = req.user?.id;
