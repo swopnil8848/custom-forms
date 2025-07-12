@@ -63,7 +63,6 @@ export class FormField {
 
   @OneToMany(() => FormSubmissionData, (data) => data.submissionId, {
     cascade: true,
-    eager: true,
   })
   submissionData!: FormSubmissionData[];
 

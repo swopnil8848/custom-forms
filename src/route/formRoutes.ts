@@ -20,12 +20,36 @@ router.delete("/:id", protect, catchAsync(FormController.deleteForm));
 // router.patch("/:id/unpublish", protect, catchAsync(FormController.unpublishForm));
 
 // Form field routes
-router.post("/:formId/fields", protect, catchAsync(FormFieldController.createFormField));
-router.get("/:formId/fields", protect, catchAsync(FormFieldController.getFormFields));
-router.get("/fields/:id", protect, catchAsync(FormFieldController.getFormFieldById));
-router.put("/fields/:id", protect, catchAsync(FormFieldController.updateFormField));
-router.delete("/fields/:id", protect, catchAsync(FormFieldController.deleteFormField));
-router.patch("/:formId/fields/reorder", protect, catchAsync(FormFieldController.reorderFormFields));
+router.post(
+  "/:formId/fields",
+  protect,
+  catchAsync(FormFieldController.createFormField)
+);
+router.get(
+  "/:formId/fields",
+  protect,
+  catchAsync(FormFieldController.getFormFields)
+);
+router.get(
+  "/fields/:id",
+  protect,
+  catchAsync(FormFieldController.getFormFieldById)
+);
+router.put(
+  "/fields/:id",
+  protect,
+  catchAsync(FormFieldController.updateFormField)
+);
+router.delete(
+  "/fields/:id",
+  protect,
+  catchAsync(FormFieldController.deleteFormField)
+);
+router.patch(
+  "/:formId/fields/reorder",
+  protect,
+  catchAsync(FormFieldController.reorderFormFields)
+);
 
 // Form submission routes
 router.post(
@@ -33,10 +57,30 @@ router.post(
   upload.array("files", 10), // Allow up to 10 files
   catchAsync(FormSubmissionController.submitForm)
 );
-router.get("/:formId/submissions", protect, catchAsync(FormSubmissionController.getFormSubmissions));
-router.get("/submissions/:id", protect, catchAsync(FormSubmissionController.getSubmissionById));
-router.delete("/submissions/:id", protect, catchAsync(FormSubmissionController.deleteSubmission));
-router.get("/:formId/submissions/export", protect, catchAsync(FormSubmissionController.exportSubmissions));
-router.get("/:formId/submissions/stats", protect, catchAsync(FormSubmissionController.getSubmissionStats));
+router.get(
+  "/:formId/submissions",
+  protect,
+  catchAsync(FormSubmissionController.getFormSubmissions)
+);
+router.get(
+  "/submissions/:id",
+  protect,
+  catchAsync(FormSubmissionController.getSubmissionById)
+);
+router.delete(
+  "/submissions/:id",
+  protect,
+  catchAsync(FormSubmissionController.deleteSubmission)
+);
+router.get(
+  "/:formId/submissions/export",
+  protect,
+  catchAsync(FormSubmissionController.exportSubmissions)
+);
+router.get(
+  "/:formId/submissions/stats",
+  protect,
+  catchAsync(FormSubmissionController.getSubmissionStats)
+);
 
 export default router;
