@@ -7,14 +7,7 @@ import {
   OneToMany,
   OneToOne,
 } from "typeorm";
-import { StudentProfile } from "./StudentProfile";
-import { TeacherProfile } from "./TeacherProfile";
-import { OfficerProfile } from "./officerProfile";
-import { GroupMember } from "./GroupMember";
-import { Submission } from "./Submission";
-import { Grade } from "./Grade";
-import { Resource } from "./Resource";
-import { Notification } from "./Notification";
+
 
 export enum UserRole {
   ADMIN = "admin",
@@ -76,31 +69,6 @@ export class User {
     nullable: true,
   })
   passwordResetToken!: String | null;
-
-  // Relations
-  @OneToOne(() => StudentProfile, (profile) => profile.user)
-  student_profile!: StudentProfile;
-
-  @OneToOne(() => TeacherProfile, (profile) => profile.user)
-  teacher_profile!: TeacherProfile;
-
-  @OneToOne(() => OfficerProfile, (profile) => profile.user)
-  officer_profile!: OfficerProfile;
-
-  @OneToMany(() => GroupMember, (member) => member.user)
-  group_memberships!: GroupMember[];
-
-  @OneToMany(() => Submission, (submission) => submission.student)
-  submissions!: Submission[];
-
-  @OneToMany(() => Grade, (grade) => grade.student)
-  grades!: Grade[];
-
-  @OneToMany(() => Resource, (resource) => resource.uploaded_by)
-  uploaded_resources!: Resource[];
-
-  @OneToMany(() => Notification, (notification) => notification.user)
-  notifications!: Notification[];
 
   // Helper methods
   get full_name(): string {
