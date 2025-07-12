@@ -27,5 +27,5 @@ export class FormSubmissionData {
   value!: string;
 
   @Column({ type: "text", nullable: true })
-  fileName?: string; // For file uploads
+  fileName?: string | null; // For file uploads
 }
